@@ -78,7 +78,7 @@ export class PaymentVerifier {
       );
     }
 
-    const data: PaymentRequirementResponse = await response.json();
+    const data = (await response.json()) as PaymentRequirementResponse;
     return {
       contextId: data.contextId,
       requirement: data.requirement,
@@ -123,6 +123,6 @@ export class PaymentVerifier {
       );
     }
 
-    return response.json();
+    return (await response.json()) as LightweightVerifyResponse;
   }
 }

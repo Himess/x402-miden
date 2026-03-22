@@ -120,7 +120,7 @@ export function midenFetch(
   const maxRetries = options?.maxRetries ?? 1;
 
   const wrappedFetch: typeof fetch = async (
-    input: RequestInfo | URL,
+    input: string | URL | Request,
     init?: RequestInit,
   ): Promise<Response> => {
     const request = new Request(input, init);
