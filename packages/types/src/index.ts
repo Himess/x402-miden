@@ -92,7 +92,10 @@ export interface PaymentContext {
   noteTag: number;
 
   /** Serial number, hex-encoded, 32 bytes. */
-  serialNum: string;
+  serialNum?: string;
+
+  /** Expected NoteId, computed lazily during verification. */
+  expectedNoteId?: string;
 
   /** Creation timestamp in epoch seconds. */
   createdAt: number;
@@ -131,7 +134,7 @@ export interface LightweightVerifyResponse {
  */
 export interface PaymentRequirementRequest {
   /** Server's Miden account ID, hex-encoded. */
-  payTo: string;
+  recipient: string;
 
   /** Faucet account ID, hex-encoded. */
   asset: string;
@@ -141,9 +144,6 @@ export interface PaymentRequirementRequest {
 
   /** Note tag (u32). */
   noteTag: number;
-
-  /** CAIP-2 network identifier, e.g. "miden:testnet". */
-  network: string;
 }
 
 /**
@@ -162,7 +162,7 @@ export interface PaymentRequirementResponse {
  */
 export interface VerifyLightweightRequest {
   /** Context ID returned when the payment requirement was created. */
-  contextId: string;
+  paymentContextId: string;
 
   /** The payment header sent by the agent. */
   paymentHeader: LightweightPaymentHeader;
@@ -243,4 +243,4 @@ export const X402_PAYMENT_HEADER = "X-Payment";
 export const X402_CONTEXT_ID_HEADER = "X-Payment-Context";
 
 /** Default facilitator URL. */
-export const DEFAULT_FACILITATOR_URL = "http://localhost:8402";
+export const DEFAULT_FACILITATOR_URL = "http://localhost:4020";

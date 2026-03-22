@@ -33,7 +33,7 @@ export class PaymentVerifier {
 
   /**
    * @param facilitatorUrl - Base URL of the facilitator service.
-   *   Defaults to `http://localhost:8402`.
+   *   Defaults to `http://localhost:4020`.
    */
   constructor(facilitatorUrl?: string) {
     this.facilitatorUrl = (facilitatorUrl ?? DEFAULT_FACILITATOR_URL).replace(
@@ -56,11 +56,10 @@ export class PaymentVerifier {
     config: MidenPaywallConfig,
   ): Promise<{ contextId: string; requirement: LightweightPaymentRequirement }> {
     const requestBody: PaymentRequirementRequest = {
-      payTo: config.payTo,
+      recipient: config.payTo,
       asset: config.asset,
       amount: config.amount,
       noteTag: config.noteTag ?? 0,
-      network: config.network ?? "miden:testnet",
     };
 
     const response = await fetch(
@@ -104,7 +103,7 @@ export class PaymentVerifier {
     header: LightweightPaymentHeader,
   ): Promise<LightweightVerifyResponse> {
     const requestBody: VerifyLightweightRequest = {
-      contextId,
+      paymentContextId: contextId,
       paymentHeader: header,
     };
 
