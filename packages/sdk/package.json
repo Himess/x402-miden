@@ -1,0 +1,33 @@
+{
+  "name": "@x402-miden/sdk",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@x402-miden/types": "0.1.0"
+  },
+  "peerDependencies": {
+    "@aspect-build/aspect-sdk": ">=0.1.0"
+  },
+  "peerDependenciesMeta": {
+    "@aspect-build/aspect-sdk": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

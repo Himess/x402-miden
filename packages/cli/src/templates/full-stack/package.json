@@ -1,0 +1,23 @@
+{
+  "name": "miden-full-stack",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:server": "npx tsx src/server.ts",
+    "dev:agent": "npx tsx src/agent.ts",
+    "build": "tsc",
+    "start:server": "node dist/server.js",
+    "start:agent": "node dist/agent.js"
+  },
+  "dependencies": {
+    "@x402-miden/sdk": "^0.1.0",
+    "@x402-miden/middleware": "^0.1.0",
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "tsx": "^4.0.0",
+    "typescript": "^5.4.0"
+  }
+}

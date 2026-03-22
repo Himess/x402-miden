@@ -1,0 +1,15 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.DS_Store
+*.log
+.env
+.env.*
+coverage/
+.turbo/
+ref-miden-base
+ref-x402-rs
+x402-chain-miden
+.claude/
+MEMORY.md
+TODO.md

@@ -1,0 +1,47 @@
+{
+  "name": "@x402-miden/middleware",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./express": {
+      "types": "./dist/express.d.ts",
+      "import": "./dist/express.js"
+    },
+    "./hono": {
+      "types": "./dist/hono.d.ts",
+      "import": "./dist/hono.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@x402-miden/types": "0.1.0"
+  },
+  "peerDependencies": {
+    "express": ">=4.0.0",
+    "hono": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "express": {
+      "optional": true
+    },
+    "hono": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "hono": "^4.0.0",
+    "typescript": "^5.4.0"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "x402-miden",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/types",
+    "packages/sdk",
+    "packages/middleware",
+    "packages/cli"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "clean": "npm run clean --workspaces",
+    "typecheck": "npm run typecheck --workspaces"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
